@@ -1,6 +1,112 @@
 {% extends 'layout.html' %}
 
+{% extends 'layout.html' %}
+
 {% block content %}
-    <h1>Welcome to FacturAPP</h1>
-    <p>This is the home page of the application.</p>
+<!-- Contenedor Principal con animación de entrada opcional -->
+<div class="container my-5">
+    
+    <!-- Fila de Bienvenida -->
+    <div class="row mb-4 align-items-center">
+        <div class="col-md-8">
+            <h1 class="display-5 fw-bold text-primary-emphasis">Panel de Control</h1>
+            <p class="lead text-muted">Bienvenido al sistema de administración y facturación electrónica de FacturAPP.</p>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <!-- Fecha Dinámica o Estado -->
+            <span class="badge bg-primary-subtle text-primary p-2 fs-6 border border-primary-subtle rounded-pill">
+                <i class="bi bi-calendar3"></i> Período Activo: Noviembre 2026
+            </span>
+        </div>
+    </div>
+
+    <!-- FILA DE TARJETAS DE ESTADÍSTICAS (Cards de acceso rápido) -->
+    <div class="row g-4 mb-5">
+        <!-- Tarjeta Clientes -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 shadow-sm border-0 border-top border-4 border-primary">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="card-subtitle text-muted fw-semibold">Clientes Totales</h6>
+                        <div class="bg-primary-subtle text-primary rounded p-2 px-3 fs-4">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                    </div>
+                    <h2 class="card-title fw-bold mb-1">1,248</h2>
+                    <a href="/client/list" class="text-decoration-none small icon-link icon-link-hover">
+                        Ver listado <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta Facturas Emitidas -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 shadow-sm border-0 border-top border-4 border-success">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="card-subtitle text-muted fw-semibold">Facturas este Mes</h6>
+                        <div class="bg-success-subtle text-success rounded p-2 px-3 fs-4">
+                            <i class="bi bi-receipt"></i>
+                        </div>
+                    </div>
+                    <h2 class="card-title fw-bold mb-1">320</h2>
+                    <a href="#" class="text-decoration-none small text-success icon-link icon-link-hover">
+                        Historial <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta Productos en Inventario -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 shadow-sm border-0 border-top border-4 border-warning">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="card-subtitle text-muted fw-semibold">Productos</h6>
+                        <div class="bg-warning-subtle text-warning rounded p-2 px-3 fs-4">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+                    </div>
+                    <h2 class="card-title fw-bold mb-1">84</h2>
+                    <a href="/product/list" class="text-decoration-none small text-warning icon-link icon-link-hover">
+                        Ver inventario <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta Usuarios del Sistema -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 shadow-sm border-0 border-top border-4 border-info">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="card-subtitle text-muted fw-semibold">Usuarios Activos</h6>
+                        <div class="bg-info-subtle text-info rounded p-2 px-3 fs-4">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                    </div>
+                    <h2 class="card-title fw-bold mb-1">5</h2>
+                    <a href="/user/list" class="text-decoration-none small text-info icon-link icon-link-hover">
+                        Gestionar <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN INTERMEDIA: ACCIONES DE ACCESO DIRECTO -->
+    <div class="bg-light p-4 rounded-3 shadow-sm border mb-5">
+        <h4 class="fw-bold mb-3 text-dark">Acciones Rápidas</h4>
+        <div class="d-flex flex-wrap gap-3">
+            <a href="/client/new" class="btn btn-outline-primary"><i class="bi bi-person-plus"></i> Registrar Cliente</a>
+            <a href="/product/new" class="btn btn-outline-success"><i class="bi bi-plus-square"></i> Cargar Producto</a>
+            <a href="/category/new" class="btn btn-outline-warning"><i class="bi bi-tags"></i> Crear Categoría</a>
+        </div>
+    </div>
+
+</div>
 {% endblock %}
+
+
+{% block content %}
