@@ -74,6 +74,35 @@
           </div>
         </div>
     </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <!-- Nombre de la aplicación con estilo Bootstrap -->
+    <a class="navbar-brand fw-bold" href="#">FacturAPP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <!-- Enlace para la sección de clientes, apuntando a tu ruta de Flask -->
+          <a class="nav-link" href="/client/new">Nuevo Cliente</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Facturas</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        Módulo de Facturación
+      </span>
+    </div>
+  </div>
+</nav>
+
+
     {% block content %}
     {% endblock %}
 </body>
