@@ -4,77 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FacturAPP</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://jsdelivr.net" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Iconos de Bootstrap (Opcional, pero recomendados para los botones) -->
+    <link rel="stylesheet" href="https://jsdelivr.net">
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://jsdelivr.net" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand fw-bold" href="/">FacturAPP</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Inicio</a>
               </li>
         
+              <!-- Desplegable Clientes -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Cients
+                  Clientes
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="form_clients">New Client</a></li>
-                  <li><a class="dropdown-item" href="list_clients">List Clients</a></li>
-                  
+                  <li><a class="dropdown-item" href="/client/new">Nuevo Cliente</a></li>
+                  <li><a class="dropdown-item" href="/client/list">Listar Clientes</a></li>
                 </ul>
               </li>
 
-              
-        
+              <!-- Desplegable Productos -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Products
+                  Productos
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="form_products.html">New Product</a></li>
-                  <li><a class="dropdown-item" href="list_products.html">List Products</a></li>
-                  
+                  <li><a class="dropdown-item" href="/product/new">Nuevo Producto</a></li>
+                  <li><a class="dropdown-item" href="/product/list">Listar Productos</a></li>
                 </ul>
               </li>
 
+              <!-- Desplegable Usuarios -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Users
+                  Usuarios
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="form_products.html">New User</a></li>
-                  <li><a class="dropdown-item" href="list_products.html">List Users</a></li>
-                  
+                  <li><a class="dropdown-item" href="/user/new">Nuevo Usuario</a></li>
+                  <li><a class="dropdown-item" href="/user/list">Listar Usuarios</a></li>
                 </ul>
               </li>
 
+              <!-- Desplegable Categorías -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Categories
+                  Categorías
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="form_categories">New Category</a></li>
-                  <li><a class="dropdown-item" href="list_categories">List Cotegories</a></li>
-                  
+                  <li><a class="dropdown-item" href="/category/new">Nueva Categoría</a></li>
+                  <li><a class="dropdown-item" href="/category/list">Listar Categorías</a></li>
                 </ul>
               </li>
-
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+
+            <!-- NUEVA SECCIÓN: BOTONES DE ACCESO RÁPIDO (LADO DERECHO) -->
+            <div class="d-flex align-items-center gap-2">
+              <!-- Botón rápido para Nueva Factura -->
+              <a href="/invoice/new" class="btn btn-success btn-sm fw-semibold">
+                <i class="bi bi-plus-circle"></i> Nueva Factura
+              </a>
+
+              <!-- Botón de Notificaciones (Estilo icono con contador) -->
+              <button class="btn btn-outline-light btn-sm position-relative me-2">
+                <i class="bi bi-bell"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  3
+                </span>
+              </button>
+
+              <!-- Desplegable de Perfil de Usuario / Acceso / Salir -->
+              <div class="dropdown">
+                <button class="btn btn-outline-info btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-person-circle"></i> Mi Cuenta
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="/profile"><i class="bi bi-gear"></i> Configuración</a></li>
+                  <li><hr class="dropdown-content-divider"></li>
+                  <li><a class="dropdown-item text-danger" href="/logout"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>
+                </ul>
+              </div>
+            </div>
+
           </div>
         </div>
     </nav>
-    {% block content %}
-    {% endblock %}
+
+    <!-- Bloque dinámico para las vistas de Flask -->
+    <div class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 </html>
+
