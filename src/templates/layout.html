@@ -1,112 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FacturAPP</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://jsdelivr.net" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <!-- Iconos de Bootstrap (Opcional, pero recomendados para los botones) -->
+    <title>FacturAPP - Panel de Control</title>
+    
+    <!-- Enlace de respaldo por si conecta a internet -->
+    <link href="https://jsdelivr.net" rel="stylesheet">
     <link rel="stylesheet" href="https://jsdelivr.net">
-    <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://jsdelivr.net" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    
+    <!-- ESTILOS DIRECTOS: ESTO FUERZA AL NAVEGADOR A PONERLO HORIZONTAL SIEMPRE -->
+    <style>
+        body {
+            background-color: #f4f6f9 !important;
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        /* Fuerza la barra de navegación horizontal */
+        .navbar {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding: 10px 20px !important;
+            background-color: #212529 !important;
+            color: white !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: #0dcaf0 !important;
+            text-decoration: none;
+            font-size: 1.25rem;
+            margin-right: 20px;
+        }
+        .navbar-nav {
+            display: flex !important;
+            flex-direction: row !important; /* Fuerza la fila horizontal */
+            list-style: none !important;
+            margin: 0 !important;
+            padding-left: 0 !important;
+            gap: 15px !important;
+        }
+        .nav-link {
+            color: rgba(255,255,255,0.75) !important;
+            text-decoration: none !important;
+            padding: 8px 10px;
+        }
+        .nav-link:hover {
+            color: white !important;
+        }
+        /* Fuerza el contenedor derecho horizontal */
+        .right-buttons {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            gap: 15px !important;
+        }
+        .btn-success {
+            background-color: #198754 !important;
+            color: white !important;
+            border: none !important;
+            padding: 6px 12px !important;
+            border-radius: 4px !important;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .card {
+            background-color: white !important;
+            border-radius: 8px !important;
+            padding: 20px !important;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand fw-bold" href="/">FacturAPP</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Inicio</a>
-              </li>
-        
-              <!-- Desplegable Clientes -->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Clientes
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/client/new">Nuevo Cliente</a></li>
-                  <li><a class="dropdown-item" href="/client/list">Listar Clientes</a></li>
-                </ul>
-              </li>
 
-              <!-- Desplegable Productos -->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Productos
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/product/new">Nuevo Producto</a></li>
-                  <li><a class="dropdown-item" href="/product/list">Listar Productos</a></li>
-                </ul>
-              </li>
-
-              <!-- Desplegable Usuarios -->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Usuarios
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/user/new">Nuevo Usuario</a></li>
-                  <li><a class="dropdown-item" href="/user/list">Listar Usuarios</a></li>
-                </ul>
-              </li>
-
-              <!-- Desplegable Categorías -->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Categorías
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/category/new">Nueva Categoría</a></li>
-                  <li><a class="dropdown-item" href="/category/list">Listar Categorías</a></li>
-                </ul>
-              </li>
+    <!-- BARRA HORIZONTAL -->
+    <header class="navbar">
+        <div style="display: flex; align-items: center;">
+            <a class="navbar-brand" href="/">FacturAPP</a>
+            
+            <ul class="navbar-nav">
+                <li><a class="nav-link" href="/">Inicio</a></li>
+                <li><a class="nav-link" href="/client/list">Clientes</a></li>
+                <li><a class="nav-link" href="/product/list">Productos</a></li>
+                <li><a class="nav-link" href="/user/list">Usuarios</a></li>
+                <li><a class="nav-link" href="/category/list">Categorías</a></li>
             </ul>
-
-            <!-- NUEVA SECCIÓN: BOTONES DE ACCESO RÁPIDO (LADO DERECHO) -->
-            <div class="d-flex align-items-center gap-2">
-              <!-- Botón rápido para Nueva Factura -->
-              <a href="/invoice/new" class="btn btn-success btn-sm fw-semibold">
-                <i class="bi bi-plus-circle"></i> Nueva Factura
-              </a>
-
-              <!-- Botón de Notificaciones (Estilo icono con contador) -->
-              <button class="btn btn-outline-light btn-sm position-relative me-2">
-                <i class="bi bi-bell"></i>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  3
-                </span>
-              </button>
-
-              <!-- Desplegable de Perfil de Usuario / Acceso / Salir -->
-              <div class="dropdown">
-                <button class="btn btn-outline-info btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="bi bi-person-circle"></i> Mi Cuenta
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="/profile"><i class="bi bi-gear"></i> Configuración</a></li>
-                  <li><hr class="dropdown-content-divider"></li>
-                  <li><a class="dropdown-item text-danger" href="/logout"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
         </div>
-    </nav>
 
-    <!-- Bloque dinámico para las vistas de Flask -->
-    <div class="container mt-4">
+        <div class="right-buttons">
+            <a href="/invoice/new" class="btn btn-success">
+                <i class="bi bi-plus-circle"></i> Nueva Factura
+            </a>
+            <span style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">
+                <i class="bi bi-person-circle"></i> Mi Cuenta
+            </span>
+        </div>
+    </header>
+
+    <!-- CONTENIDO DINÁMICO (PANEL DE CONTROL) -->
+    <main class="container my-4" style="padding: 20px;">
         {% block content %}
         {% endblock %}
-    </div>
+    </main>
+
+    <script src="https://jsdelivr.net"></script>
 </body>
 </html>
+
 
