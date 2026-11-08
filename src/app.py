@@ -20,6 +20,16 @@ def new_client():
         
     return render_template('clients/form_clients.html')
 
+
+@app.route('/product/new', methods=['GET', 'POST'])
+def new_product():
+    if request.method == 'POST':
+        # (Aquí va la lógica de captura de datos...)
+        return redirect(url_for('index'))
+    return render_template('form_products.html')
+
+
+
 # 3. Al final del todo se corre el servidor
 if __name__ == '__main__':
     app.run(debug=True)
