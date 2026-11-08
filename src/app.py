@@ -44,6 +44,20 @@ def new_user():
     # Ajusta a 'users/form_users.html' si lo guardaste dentro de la subcarpeta de usuarios
     return render_template('form_users.html')
 
+@app.route('/category/new', methods=['GET', 'POST'])
+def new_category():
+    if request.method == 'POST':
+        nombre_categoria = request.form.get('nombre_categoria')
+        codigo_categoria = request.form.get('codigo_categoria')
+        descripcion_categoria = request.form.get('descripcion_categoria')
+        
+        print(f"Creando categoría: {nombre_categoria} ({codigo_categoria})")
+        return redirect(url_for('index'))
+        
+    # Ajusta a 'categories/form_categories.html' si lo guardaste dentro de la subcarpeta de categorías
+    return render_template('form_categories.html')
+
+
 
 
 # 3. Al final del todo se corre el servidor
