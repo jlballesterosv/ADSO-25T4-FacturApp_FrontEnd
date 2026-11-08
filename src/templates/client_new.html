@@ -1,0 +1,82 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Tarjeta Principal del Formulario -->
+    <div class="card shadow-sm border-0 mx-auto" style="max-width: 700px;">
+        <!-- Encabezado de la Tarjeta -->
+        <div class="card-header bg-dark text-white p-3 border-0 rounded-top">
+            <h4 class="mb-0 fw-bold"><i class="bi bi-person-plus-fill text-info"></i> Registrar Nuevo Cliente</h4>
+        </div>
+        
+        <!-- Cuerpo del Formulario -->
+        <div class="card-body p-4 text-dark">
+            <p class="text-muted small mb-4">Por favor, complete todos los campos obligatorios para registrar al cliente en el sistema.</p>
+            
+            <form action="/client/new" method="POST">
+                
+                <!-- Campo: Nombre Completo -->
+                <div class="mb-3">
+                    <label for="nombre" class="form-label fw-semibold">Nombre Completo <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light text-muted"><i class="bi bi-person"></i></span>
+                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej. Mario Andrés Quecán" required>
+                    </div>
+                </div>
+
+                <!-- Fila de Identificación (Tipo y Número en paralelo) -->
+                <div class="row mb-3">
+                    <div class="col-md-5">
+                        <label for="idType" class="form-label fw-semibold">Tipo de Documento <span class="text-danger">*</span></label>
+                        <select class="form-select" id="idType" name="idType" required>
+                            <option value="" selected disabled>Seleccione...</option>
+                            <option value="CC">Cédula de Ciudadanía (CC)</option>
+                            <option value="CE">Cédula de Extranjería (CE)</option>
+                            <option value="TI">Tarjeta de Identidad (TI)</option>
+                            <option value="PAS">Pasaporte (PAS)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-7">
+                        <label for="idNumber" class="form-label fw-semibold">Número de Identificación <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="idNumber" name="idNumber" placeholder="Ej. 11122333" required>
+                    </div>
+                </div>
+
+                <!-- Fila de Contacto (Teléfono y Correo) -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="phone" class="form-label fw-semibold">Teléfono / Celular</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light text-muted"><i class="bi bi-telephone"></i></span>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Ej. 3001234567">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label fw-semibold">Correo Electrónico <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light text-muted"><i class="bi bi-envelope"></i></span>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="mario@example.com" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Campo: Dirección de Residencia -->
+                <div class="mb-4">
+                    <label for="adress" class="form-label fw-semibold">Dirección de Residencia</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light text-muted"><i class="bi bi-geo-alt"></i></span>
+                        <input type="text" class="form-control" id="adress" name="adress" placeholder="Ej. Cra 20 # 55 - 66">
+                    </div>
+                </div>
+
+                <!-- Botones de Acción -->
+                <div class="d-flex justify-content-end gap-2 border-top pt-3">
+                    <a href="/" class="btn btn-outline-secondary px-4">Cancelar</a>
+                    <button type="submit" class="btn btn-primary px-4 fw-bold shadow-sm">Guardar Cliente</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
