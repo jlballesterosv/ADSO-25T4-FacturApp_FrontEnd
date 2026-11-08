@@ -29,6 +29,22 @@ def new_product():
     return render_template('form_products.html')
 
 
+@app.route('/user/new', methods=['GET', 'POST'])
+def new_user():
+    if request.method == 'POST':
+        nombre_completo = request.form.get('nombre_completo')
+        username = request.form.get('username')
+        email = request.form.get('email')
+        password = request.form.get('password')
+        rol = request.form.get('rol')
+        
+        print(f"Creando cuenta de usuario: {username} con Rol: {rol}")
+        return redirect(url_for('index'))
+        
+    # Ajusta a 'users/form_users.html' si lo guardaste dentro de la subcarpeta de usuarios
+    return render_template('form_users.html')
+
+
 
 # 3. Al final del todo se corre el servidor
 if __name__ == '__main__':

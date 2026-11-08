@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Tarjeta Principal del Formulario -->
+    <div class="card shadow-sm border-0 mx-auto" style="max-width: 700px;">
+        <!-- Encabezado de la Tarjeta (Color temático azul/información para administración de usuarios) -->
+        <div class="card-header bg-dark text-white p-3 border-0 rounded-top">
+            <h4 class="mb-0 fw-bold"><i class="bi bi-person-gear text-info"></i> Registrar Nuevo Usuario</h4>
+        </div>
+        
+        <!-- Cuerpo del Formulario -->
+        <div class="card-body p-4 text-dark">
+            <p class="text-muted small mb-4">Cree las credenciales de acceso y asigne los permisos necesarios para el nuevo colaborador del sistema.</p>
+            
+            <form action="/user/new" method="POST">
+                
+                <!-- Fila 1: Nombre Completo -->
+                <div class="mb-3">
+                    <label for="nombre_completo" class="form-label fw-semibold">Nombre Completo <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light text-muted"><i class="bi bi-person"></i></span>
+                        <input type="text" class="form-control" id="nombre_completo" name="nombre_completo" placeholder="Ej. Carlos Arturo Mendoza" required>
+                    </div>
+                </div>
+
+                <!-- Fila 2: Nombre de Usuario y Correo Electrónico en paralelo -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="username" class="form-label fw-semibold">Nombre de Usuario (Username) <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light text-muted"><i class="bi bi-at"></i></span>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Ej. carlos.mendoza" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label fw-semibold">Correo Electrónico <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light text-muted"><i class="bi bi-envelope"></i></span>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="carlos@quickly.com" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fila 3: Contraseña y Rol en paralelo -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <label for="password" class="form-label fw-semibold">Contraseña Temporal <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light text-muted"><i class="bi bi-shield-lock"></i></span>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Mínimo 8 caracteres" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="rol" class="form-label fw-semibold">Rol del Sistema <span class="text-danger">*</span></label>
+                        <select class="form-select" id="rol" name="rol" required>
+                            <option value="" selected disabled>Seleccione un rol...</option>
+                            <option value="administrador">Administrador / Director IT</option>
+                            <option value="analista">Analista de Facturación</option>
+                            <option value="cajero">Cajero / Operador</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Botones de Acción -->
+                <div class="d-flex justify-content-end gap-2 border-top pt-3">
+                    <a href="/" class="btn btn-outline-secondary px-4">Cancelar</a>
+                    <button type="submit" class="btn btn-info text-dark px-4 fw-bold shadow-sm">Crear Usuario</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
